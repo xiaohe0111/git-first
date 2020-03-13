@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            overflow: hidden;
+            /* 触发BFC可以清除浮动可以溢出隐藏,隐藏比主体多出的部分*/
+            min-height: 50px;
+            /* 当中间主体部份(middle)高度增加的时候父容器高度会被撑开为主体部分的高度 */
+            min-width: 700px;
+            /* 当页面视口缩小的时候布局会变形 */
+            padding-left: 200px;
+            padding-right: 300px;
+            /* 预留左右两边的位置 */
+            box-sizing: border-box;
+                 /* 使用C3盒模型 */
+        }
+        .middle {
+            float: left;
+            width: 100%;
+            height: 50px;
+            background-color: yellow;
+        }
+        .left {
+            position: relative;
+            top: 0;
+            left: -200px;
+            float: left;
+            width: 200px;
+            height: 100%;
+            margin-left: -100%;
+            /* 使其浮动向上移动一行 */
+            background-color: skyblue;
+            height: 9999px;
+            margin-bottom: -9999px;
+            /* 使侧栏与中间主体部分等高 */
+        }
+        .right {
+            position: relative;
+            right: -300px;
+            float: left;
+            width: 300px;
+            height: 100%;
+            margin-left: -300px;
+            /* 向左移动自身的宽度 */
+            background-color: pink;
+            padding-bottom: 9999px;
+            margin-bottom: -9999px;
+            /* 使侧栏与中间主体部分等高 ,另一种方法*/
+        }
+    </style>
+</head>
+<body>
+    <!-- 中间主体部分放在前面优先渲染 -->
+    <div class="container">
+        <div class="middle">middle 前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端</div>
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+</body>
+</html>

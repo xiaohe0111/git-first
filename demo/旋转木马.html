@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>旋转木马</title>
+    <style>
+        body {
+            perspective: 1000px;
+        }
+
+        section {
+            /* 子元素要保留3d效果，父元素必须给transform-style属性 */
+            transform-style: preserve-3d;
+            position: relative;
+            width: 300px;
+            height: 200px;
+            margin: 100px auto;
+            background: url(media/pig.jpg) no-repeat;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotateY(0deg);
+            }
+
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+
+        section div {
+            /* 所有的子元素都相对于父元素绝对定位， */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(media/dog.jpg) no-repeat;
+        }
+
+        /* 第一张图片往我们眼睛的方向移动 */
+        section div:nth-child(1) {
+            transform: rotateY(0deg) translateZ(300px);
+        }
+
+        /* 第一张图片沿着Y周旋转60度，同样往我们眼睛的方向移动相同的位置 */
+        section div:nth-child(2) {
+            transform: rotateY(60deg) translateZ(300px);
+        }
+
+        /* 第一张图片沿着Y周旋转120度，同样往我们眼睛的方向移动相同的位置 */
+        section div:nth-child(3) {
+            transform: rotateY(120deg) translateZ(300px);
+        }
+
+        /* 第一张图片沿着Y周旋转180度，同样往我们眼睛的方向移动相同的位置 */
+        section div:nth-child(4) {
+            transform: rotateY(180deg) translateZ(300px);
+        }
+
+        /* 第一张图片沿着Y周旋转120度，同样往我们眼睛的方向移动相同的位置 */
+        section div:nth-child(5) {
+            transform: rotateY(240deg) translateZ(300px);
+        }
+
+        /* 第一张图片沿着Y周旋转300度，同样往我们眼睛的方向移动相同的位置 */
+        section div:nth-child(6) {
+            transform: rotateY(300deg) translateZ(300px);
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+</body>
+
+</html>
